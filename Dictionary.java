@@ -12,10 +12,6 @@ public class Dictionary{
 	public Dictionary(){
 		prime = getPrimeNum();
 	}
-    
-	public Node[] createEmptySet(){
-		return d;
-	}
   
 
 	private int getPrimeNum(){
@@ -48,7 +44,7 @@ public class Dictionary{
 		return prime - (k % prime);
 	}
   
-	public Node lookUp(int k){
+	public Node lookUp(int k){ //Search
 		int index = hash1(k);
 		int step = hash2(k);
 		while (d[index] != null){
@@ -71,20 +67,20 @@ public class Dictionary{
 				return;
 			}
 		}
-    d[index] = x;
+    		d[index] = x;
 	}
     
 	public void delete(int k){
 		for (int i = 0; i < size; i++){
-      if (d[i] != null){
-        if (d[i].getKey() == k){
-          d[i] = null;
-          return;
-        }
+      			if (d[i] != null){
+        			if (d[i].getKey() == k){
+          				d[i] = null;
+          				return;
+        			}
         
-      }
-    }
-    System.out.println("Node not found");
+      			}
+    		}
+    		System.out.println("Node not found");
 	}
     
 	public boolean isEmptySet(){
