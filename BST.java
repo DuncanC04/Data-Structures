@@ -1,18 +1,14 @@
 //Duncan Craine
 //10/31/23
 //Program Four
-//BST class with Linked List
+//BST (Binary Search Tree) class with Linked List
 
 public class BST{
 	private Node root;
 	
 	
-	public BST(){
+	public BST(){ //Create Empty BST
 		root = null;
-	}
-
-	public Node createEmptyTree(){ //returns a newly created empty binary tree
-		return root;
 	}
   
 	public void delete(Node p){ //removes the node pointed to by p
@@ -26,7 +22,7 @@ public class BST{
 		}
 	}
 	
-	private Node deleteRoot(Node t){
+	private Node deleteRoot(Node t){ //Deletes Root Node
 		Node temp = t;
 		if ((t.getLeft() == null) && (t.getRight() == null)){
 			return null;
@@ -52,7 +48,7 @@ public class BST{
 		}
 	}
 	
-	private void delete2(Node t, Node p){
+	private void delete2(Node t, Node p){ // Delete if not the node is not the root
 		if ((t.getLeft() != null) && (p.getKey() < t.getKey())){
 			if (p.getKey() == t.getLeft().getKey()){
 				t.setLeft(deleteRoot(p));
@@ -60,7 +56,7 @@ public class BST{
 			else{
 				delete2(t.getLeft(), p);
 			}
-    }
+		}
 		else if ((t.getRight() != null) && (p.getKey() > t.getKey())){
 			if (p.getKey() == t.getRight().getKey()){
 				t.setRight(deleteRoot(p));
@@ -71,9 +67,9 @@ public class BST{
 		}
 	}
 	
-	private Node findSuccessor(Node r){
+	private Node findSuccessor(Node r){ 
 		while (r.getLeft() != null){
-      r = r.getLeft();
+      			r = r.getLeft();
 		}
 		return r;
 	}
@@ -87,56 +83,56 @@ public class BST{
 		}
 	}
 	
-	private void insert2(Node t, Node p){
+	private void insert2(Node t, Node p){ // Insert for when the BST isn't empty
 		if (p.getKey() < t.getKey()){
 			if (t.getLeft() == null){
 				t.setLeft(p);
-      }
+      			}
 			else{
 				insert2(t.getLeft(), p);
 			}
-    }
+    		}
 		else{
 			if (t.getRight() == null){
-			  t.setRight(p);
-      }
+				t.setRight(p);
+      			}
 			else{
 				insert2(t.getRight(), p);
 			}
-	  }
+	  	}
 	}
 	
 	public Node search(int key){
-	  return searchr(root, key);
+		return searchr(root, key);
 	}
  
-  private Node searchr(Node t, int key){
-    if (t==null){
-      return null;
-    }
-    else if (key == t.getKey()){
-      return t;
-    }
-    else if (key < t.getKey()){
-      return searchr(t.getLeft(), key);
-    }
-    else{
-      return searchr(t.getRight(), key);
-    }
-  }
+  	private Node searchr(Node t, int key){
+    		if (t==null){
+			return null;
+    		}
+    		else if (key == t.getKey()){
+      			return t;
+    		}
+    		else if (key < t.getKey()){
+      			return searchr(t.getLeft(), key);
+    		}
+    		else{
+      			return searchr(t.getRight(), key);
+    		}
+  	}
 	
 	public void traverse(){
 		traverser(root);
-    System.out.println();
+    		System.out.println();
 	}
 	
-	private void traverser(Node t){
+	private void traverser(Node t){ //Prints graphic representation
 		if (t != null){
-      traverser(t.getLeft());
-      System.out.print(t.getKey() + " ");
-      traverser(t.getRight());
-     }
-   }
+      			traverser(t.getLeft());
+      			System.out.print(t.getKey() + " ");
+      			traverser(t.getRight());
+     		}
+   	}
 	
 	public boolean isEmptyTree(){
 		return root == null;
@@ -145,21 +141,25 @@ public class BST{
 	public void printTree() {
 		printTree2(root);
 		System.out.println();
-  }
-
-  private void printTree2(Node tree) {
+  	}
+	
+	private void printTree2(Node tree) {
 		if (tree != null) {
- 	    System.out.print(tree.getKey() + " ");
-      if (tree.getLeft() != null)
-     	  System.out.print("Left: " + tree.getLeft().getKey() + " ");
-     	else
-    		System.out.print("Left: null ");
-     	if (tree.getRight() != null)
-     	  System.out.println("Right: " + tree.getRight().getKey() + " ");
-     	else
-    		System.out.println("Right: null ");
- 	    printTree2(tree.getLeft());
- 	    printTree2(tree.getRight());
-    }	
-  }
+ 			System.out.print(tree.getKey() + " ");
+		}
+      		if (tree.getLeft() != null){
+     	  		System.out.print("Left: " + tree.getLeft().getKey() + " ");
+		}
+     		else{
+    			System.out.print("Left: null ");
+		}
+     		if (tree.getRight() != null){
+     	  		System.out.println("Right: " + tree.getRight().getKey() + " ");
+		}
+     		else{
+    			System.out.println("Right: null ");
+ 	    		printTree2(tree.getLeft());
+ 	    		printTree2(tree.getRight());
+    		}	
+  	}
 }
