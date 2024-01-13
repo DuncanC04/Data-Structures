@@ -12,10 +12,6 @@ public class StackA{
     		n = 0;
 	}
   
-  	public Node[] createEmptyStack(){ //returns a newly created empty stack
-    		return s;
-  	}
-  
   	public Node top(){ //returns the last node of S
     		return s[n-1];
   	}
