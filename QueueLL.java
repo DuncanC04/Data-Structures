@@ -12,10 +12,6 @@ public class QueueLL{
 		q = null;
 		e = null;
 	}
-
-	public Node createEmptyQueue(){ //returns a newly created empty queue
-		return q;
-	}
   
 	public Node front(){ //returns front node of Q
 		return q;
