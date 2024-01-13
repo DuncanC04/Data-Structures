@@ -11,8 +11,8 @@ public class QueueA{
 	private int front;
 	
 	public QueueA(){
-    	n = 0;
-    	front = 0;
+    		n = 0;
+    		front = 0;
   	}
   
  	public Node[] createEmptyQueue(){ //returns a newly created empty queue
@@ -41,20 +41,23 @@ public class QueueA{
 	}
 	
 	// printQueue method for QueueA
-    public void printQueue() {
-        int tail = (front + n) % 100;
-        System.out.println(front);
-        System.out.println(tail);
-        if (front <= tail)
-           for(int i = front; i < tail; i++) 
-               System.out.println(q[i].getKey());
-        else {
-           for(int i = front; i < 100; i++) 
-               System.out.println(q[i].getKey());          
-           for(int i = 0; i < tail; i++) 
-               System.out.println(q[i].getKey());
-        }          
-    }
+    	public void printQueue() {
+        	int tail = (front + n) % 100;
+        	System.out.println(front);
+        	System.out.println(tail);
+        	if (front <= tail)
+           		for(int i = front; i < tail; i++) {
+               			System.out.println(q[i].getKey());
+			}
+        	else {
+           		for(int i = front; i < 100; i++){
+               			System.out.println(q[i].getKey());   
+			}
+           		for(int i = 0; i < tail; i++) {
+               			System.out.println(q[i].getKey());
+			}
+        	}          
+    	}
 
 	
 }
