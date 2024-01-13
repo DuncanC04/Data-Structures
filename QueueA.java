@@ -14,10 +14,6 @@ public class QueueA{
     		n = 0;
     		front = 0;
   	}
-  
- 	public Node[] createEmptyQueue(){ //returns a newly created empty queue
-		return q;
- 	}
 
 	public Node front(){ //returns front node of Q
 		return q[front];
