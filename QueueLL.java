@@ -43,11 +43,11 @@ public class QueueLL{
 	
 	
 	// printQueue method for QueueLL
-    public void printQueue() {
-        Node temp = q;
-        while (temp != null) {
-            System.out.println(temp.getKey());
-            temp = temp.getNext();
-        }
-    }
+    	public void printQueue() {
+        	Node temp = q;
+        	while (temp != null) {
+        		System.out.println(temp.getKey());
+        		temp = temp.getNext();
+        	}
+    	}
 }
